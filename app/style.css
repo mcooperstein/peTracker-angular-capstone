@@ -1,0 +1,311 @@
+/*
+The CSS code gets to executed from top to bottom and left ro right
+Basic rules to write CSS
+- write GENERAL rules first (for all the paragraph tags in the website for example) and only after that write CSS for SPECIFIC tags (for example the paragraph tags inside the footer)
+- write the css styles to define for the parent (outside) container and THEN the children (inside containers) of that parent and THEN the children (inside containers) of the child above
+*/
+
+
+/* -------------------------------------
+CSS reset
+(all the browsers will see the website in the same by setting every tag to 0 (the website will look the same on all browsers))
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+    box-sizing: border-box;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+}
+
+
+/* -------------------------------------
+General styles (General Module, wrapping around the modules bellow)
+(the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
+*/
+
+body {
+    background-color: #F63E3E;
+    text-align: center;
+}
+
+h4 {
+    color: black;
+    font-weight: bold;
+}
+
+h4:hover {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+
+
+/* --Legible Medical Redcord Text --*/
+
+.legible {
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/* -------------------------------------
+Header styles (Main Module)
+(all the styles inside the < header > or < nav > tags)
+*/
+
+.header-class {
+    background-color: #CEE8DF;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/* -------------------------------------
+Content styles (Main Module)
+(all the styles inside the < sections > or < aside > tags)
+*/
+
+h2 {
+    font-family: 'Libre Baskerville', serif;
+}
+
+h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bolder;
+    color: darkslategray;
+}
+
+h3:hover {
+    font-size: 2.5em;
+}
+
+
+/* -- Daily Log/User Input Section --*/
+
+.user-input {
+    width: 50%;
+    height: 2em;
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Libre Baskerville', serif;
+    border: 1px solid black;
+}
+
+.user-input-appointments {
+    width: 50%;
+    height: 4em;
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Libre Baskerville', serif;
+    border: 1px solid black;
+}
+
+.add-button {
+    background-color: darkslategray;
+    color: white;
+    width: 50%;
+    float: right;
+    font-size: 2em;
+    height: 2em;
+    border: 1px solid black;
+    word-spacing: 0.25em;
+}
+
+.add-button h5 {
+    font-size: 0.8em;
+}
+
+.add-button h5:hover {
+    font-size: 1em;
+}
+
+.clear-button {
+    background-color: #090303;
+    color: #cbe9df;
+    width: 100%;
+    height: 2em;
+    font-size: 2em;
+    text-align: center;
+    word-spacing: 0.5em;
+    letter-spacing: 0.1em
+}
+
+
+/*#home {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.btn {
+    position: fixed;
+    bottom: 0px;
+    margin-bottom: 2em;
+}*/
+
+.btn {
+    width: 33%;
+}
+
+ul {
+    margin-top: 1.5em;
+}
+
+li {
+    text-align: left;
+    font-size: 2.25em;
+    font-family: 'Indie Flower', cursive;
+}
+
+
+/* ---Upcoming Appointments---*/
+
+.no-bullet {
+    list-style-type: none;
+    font-family: 'Oswald', sans-serif;
+}
+
+.checkbox {
+    height: 0.75em;
+    width: 0.75em;
+    display: inline-block;
+}
+
+.done-true {
+    text-decoration: line-through;
+    color: azure;
+    margin-left: 0.5em;
+}
+
+.delete-btn {
+    font-size: 1.15em;
+}
+
+
+/* ---Animation Section--- */
+
+.fade {
+    /*position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;*/
+    height: 100%;
+    opacity: 1;
+}
+
+.fade.ng-enter,
+.fade.ng-leave {
+    -webkit-transition: all 1.3s ease;
+    transition: all 1.3s ease;
+}
+
+.fade.ng-enter {
+    opacity: 0;
+}
+
+.fade.ng-enter-active {
+    opacity: 1;
+}
+
+.fade.ng-leave {
+    opacity: 1;
+}
+
+.fade.ng-leave-active {
+    opacity: 0;
+}
+
+.loading {
+    position: relative;
+    height: 100%;
+}
+
+.loading:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9) no-repeat center center;
+    background-image: url('loading-animation.gif');
+}
+
+.container {
+    position: relative;
+    min-height: 100%;
+}
+
+.animate-view.ng-enter,
+.animate-view.ng-leave {
+    transition: 2s linear all;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #eee;
+}
+
+.animate-view.ng-enter {
+    opacity: 0;
+    z-index: 100;
+}
+
+.animate-view.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.animate-view.ng-leave {
+    opacity: 1;
+    z-index: 99;
+}
+
+.animate-view.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+
+/* -------------------------------------
+Footer styles (Main Module)
+(all the styles inside the < footer > tag)
+*/
+
+.add-delete {
+    margin-top: 2em;
+    /*padding: 2em;*/
+    background-color: #CEE8DF;
+    width: 100%;
+}
+
+.add-delete h3 {
+    font-family: 'Cutive Mono', monospace;
+}
+
+.no-padding-left-and-right {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* -------------------------------------
+place all the desktop styles above this line
+Responsive styles
+(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
+place all the mobile tables styles bellow this line
+*/

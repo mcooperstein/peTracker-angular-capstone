@@ -1,0 +1,27 @@
+<div class="container" ng-controller="dailylogController">
+    <h1>Moe's Daily Log for {{today | date}}</h1>
+    <br>
+    <form>
+        <input class="user-input" type="text" placeholder="Example: 9am pooped outside" ng-model="addText" required/>
+        <button class="add-button" ng-click="addEvents()">
+            <h5>Add Event</h5>
+        </button>
+    </form>
+    <ul>
+        <li ng-repeat="moe in moes">{{moe.text}}</li>
+        <li ng-repeat="event in events">
+            <span>{{event.text}}</span>
+        </li>
+    </ul>
+    <!--<div id="home">-->
+    <a ng-href="#/homepage">
+        <button class="btn btn-primary">Back to Homepage</button>
+    </a>
+    <a ng-href="#/moemedical">
+        <button class="btn btn-primary">Go to Moe's Medical Log</button>
+    </a>
+    <a ng-href="#/moeappointments">
+        <button class="btn btn-primary">Go to Moe's Upcoming Appointments</button>
+    </a>
+    <!--</div>-->
+</div>

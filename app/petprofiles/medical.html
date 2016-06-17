@@ -1,0 +1,27 @@
+<div class="container" ng-controller="MainController">
+    <h1>Riley's Medical Journal</h1>
+    <br>
+    <ul>
+        <li class="legible" ng-repeat="medical in rileymedical">{{medical.text}}</li>
+        <li class="legible" ng-repeat="event in events">
+            <span>{{event.text}}</span>
+        </li>
+    </ul>
+    <form>
+        <input class="user-input" type="text" placeholder="Add event . . ." ng-model="addText" required/>
+        <button class="add-button" ng-click="addEvents()">
+            <h5>Add Event</h5>
+        </button>
+    </form>
+    <div id="home">
+        <a ng-href="#/homepage">
+            <button class="btn btn-primary">Back to Homepage</button>
+        </a>
+        <a ng-href="#/daylog">
+            <button class="btn btn-primary">Go to {{petprofile.petname}}'s Daily Log</button>
+        </a>
+        <a ng-href="#/appointments">
+            <button class="btn btn-primary">Go to {{petprofile.petname}}'s Upcoming Appointments</button>
+        </a>
+    </div>
+</div>
