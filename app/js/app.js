@@ -26,42 +26,81 @@ var app = angular.module('myApp', ['ngMessages', 'ngRoute', 'ngAnimate']);
     };
 });*/
 
+app.value('petprofile', [
+    //Riley
+    {
+        petname: 'Riley',
+        image: 'images/Riley.jpg',
+        medical: {
+            neutered: "Riley was neutered at SPCA on 2/28/04",
+            rabies: "Got last rabies/DA2PP vaccinations 9/3/14 (3-year vaccine)",
+            checkup: "Annual checkup at Vet on 4/25/15, vet found 3 fleas.",
+            vet: "Annual checkup at Vet on 5/30/16, had 2 teeth pulled."
+        },
+        appointments: ["Vet checkup on 6/15/16", "Grooming Appointment on 7/1/16"],
+        events: ["Riley peed 8am", "Riley fed 9am"]
+    },
+    //Moe
+    {
+        petname: 'Moe',
+        image: 'images/Moe.jpg',
+        medical: {
+            neutered: "Moe was neutered at SPCA on 1/15/16",
+            rabies: "Got rabies/DA2PP shots (3-year vaccines) 3/3/16",
+            checkup: "1 year checkup at Vet on 5/30/16, very healthy"
+        },
+        appointments: ["Vet checkup on 6/25/16", "Grooming Appointment on 6/26/16", "Grooming Appointment on 8/3/16"],
+        events: ["Moe peed 7am", "Moe ran 10am"]
+
+    }
+]);
+
 app.config(['$locationProvider', '$routeProvider',
             function ($locationProvider, $routeProvider) {
-            $routeProvider.when('/homepage', {
-                    templateUrl: './petprofiles/homepage.html',
+            $routeProvider
+                .when('/homepage', {
+                    templateUrl: './partials/homepage.html',
                     controller: 'MainController'
                 })
-                .when('/petname', {
-                    templateUrl: './petprofiles/petname.html',
-                    controller: 'petprofileController'
-                })
-                .when('/moe', {
-                    templateUrl: './petprofiles/moe.html',
-                    controller: 'petprofileController'
+                .when('/petprofile/:petname', {
+                    templateUrl: './partials/petprofile.html',
+                    controller: 'petprofileController',
+                    resolve: {
+                        petname: function (petprofile, $route, $location) {
+                            var petname = $route.current.params.petname;
+                            /*console.log(petprofile(petname));
+                            console.log(petprofile[0].indexOf(petname));*/
+                            /*
+                                                        if (petprofile.indexOf(petname) === -1) {
+                                                            $location.path('/error');
+                                                            return;
+                                                        }*/
+                            return petname;
+                        }
+                    }
                 })
                 .when('/daylog', {
-                    templateUrl: './petprofiles/daylog.html',
+                    templateUrl: './partials/daylog.html',
                     controller: 'dailylogController'
                 })
                 .when('/medical', {
-                    templateUrl: './petprofiles/medical.html',
+                    templateUrl: './partials/medical.html',
                     controller: 'medicalController'
                 })
                 .when('/appointments', {
-                    templateUrl: './petprofiles/appointments.html',
+                    templateUrl: './partials/appointments.html',
                     controller: 'appointmentsController'
                 })
                 .when('/moedaylog', {
-                    templateUrl: './petprofiles/moedaylog.html',
+                    templateUrl: './partials/moedaylog.html',
                     controller: 'dailylogController'
                 })
                 .when('/moemedical', {
-                    templateUrl: './petprofiles/moemedical.html',
+                    templateUrl: './partials/moemedical.html',
                     controller: 'medicalController'
                 })
                 .when('/moeappointments', {
-                    templateUrl: './petprofiles/moeappointments.html',
+                    templateUrl: './partials/moeappointments.html',
                     controller: 'appointmentsController'
                 })
                 .otherwise({
@@ -78,7 +117,7 @@ app.config(['$locationProvider', '$routeProvider',
         $rootScope.$on('$routeChangeSuccess', function () {
             $rootScope.isLoading = false;
         }, 2000);
-        $rootScope.$on('addEvents', function () {
+        /*$rootScope.$on('addEvents', function () {
             if ($rootScope.addText.length >= 1) {
                 $rootScope.events.push({
                     text: $rootScope.addText
@@ -99,7 +138,7 @@ app.config(['$locationProvider', '$routeProvider',
                     $rootScope.events.push(event);
                 }
             });
-        });
+        });*/
     });
 app.controller('MainController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.today = new Date();
@@ -113,50 +152,37 @@ app.controller('MainController', ['$scope', '$rootScope', function ($scope, $roo
         }
     ];
 
-    $scope.petprofile = [
+    petprofile = [
         //Riley
         {
             petname: 'Riley',
-            image: 'images/Riley.jpg'
+            image: 'images/Riley.jpg',
+            medical: {
+                neutered: "Riley was neutered at SPCA on 2/28/04",
+                rabies: "Got last rabies/DA2PP vaccinations 9/3/14 (3-year vaccine)",
+                checkup: "Annual checkup at Vet on 4/25/15, vet found 3 fleas.",
+                vet: "Annual checkup at Vet on 5/30/16, had 2 teeth pulled."
+            },
+            appointments: ["Vet checkup on 6/15/16", "Grooming Appointment on 7/1/16"],
+            events: ["Riley peed 8am", "Riley fed 9am"]
         },
         //Moe
         {
             petname: 'Moe',
-            image: 'images/Moe.jpg'
-        }
-    ];
-    $scope.rileymedical = [
-        //neutered
-        {
-            text: "Riley was neutered at SPCA on 2/28/04"
-        },
-        //rabies
-        {
-            text: "Got last rabies/DA2PP vaccinations 9/3/14 (3-year vaccine)"
-        },
-        //checkups
-        {
-            text: "Annual checkup at Vet on 4/25/15, vet found 3 fleas."
-        },
-        {
-            text: "Annual checkup at Vet on 5/30/16, had 2 teeth pulled."
+            image: 'images/Moe.jpg',
+            medical: {
+                neutered: "Moe was neutered at SPCA on 1/15/16",
+                rabies: "Got rabies/DA2PP shots (3-year vaccines) 3/3/16",
+                checkup: "1 year checkup at Vet on 5/30/16, very healthy"
+            },
+            appointments: ["Vet checkup on 6/25/16", "Grooming Appointment on 6/26/16", "Grooming Appointment on 8/3/16"],
+            events: ["Moe peed 7am", "Moe ran 10am"]
+
         }
     ];
 
-    $scope.moemedical = [
-        //neutered
-        {
-            text: "Moe was neutered at SPCA on 1/15/16"
-        },
-        //rabies
-        {
-            text: "Got rabies/DA2PP shots (3-year vaccines) 3/3/16"
-        },
-        //checkup
-        {
-            text: "1 year checkup at Vet on 5/30/16, very healthy"
-        }
-    ];
+
+
 
 
     $scope.addEvents = function () {
@@ -184,7 +210,7 @@ app.controller('MainController', ['$scope', '$rootScope', function ($scope, $roo
         });
     };
 
-}]);
+            }]);
 
 /*app.controller('moeController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.moedaylog = [
@@ -210,22 +236,10 @@ app.controller('MainController', ['$scope', '$rootScope', function ($scope, $roo
     ];
 }]);*/
 
-app.controller('petprofileController', ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-    $scope.petprofile = [
-        //Riley
-        {
-            petname: 'Riley',
-            image: 'images/Riley.jpg'
-
-        },
-        //Moe
-        {
-            petname: 'Moe',
-            image: 'images/Moe.jpg'
-        }
-    ];
-}]);
+app.controller('petprofileController', function ($scope, petprofile) {
+    $scope.petprofile = petprofile;
+    console.log(petprofile[0].petname);
+});
 
 app.controller('dailylogController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.events = [];
@@ -297,7 +311,7 @@ app.controller('medicalController', ['$scope', '$rootScope', function ($scope, $
 app.controller('appointmentsController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     //$scope.events = [];
 
-    $scope.rileyappointments = [
+    appointments = [
         //vet
         {
             text: "Vet checkup on 6/15/16"
@@ -308,7 +322,7 @@ app.controller('appointmentsController', ['$scope', '$rootScope', function ($sco
         }
     ];
 
-    $scope.moeappointments = [
+    appointments = [
         //vet
         {
             text: "Vet checkup on 6/25/16"
