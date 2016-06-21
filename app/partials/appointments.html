@@ -1,5 +1,16 @@
-<div class="container" ng-controller="appointmentsController">
-    <h1>Riley's Upcoming Appointments</h1>
+<div class="container">
+    <section class="navbar navbar-default col-xs-12">
+        <div class="col-xs-4">
+            <a ng-href="#/daylog/{{petname}}"><h4>Daily Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/medical/{{petname}}"><h4>Medical Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/appointments/{{petname}}"><h4>Upcoming Appointments</h4></a>
+        </div>
+    </section>
+    <h1>{{petname}}'s Upcoming Appointments</h1>
     <br>
     <ul>
         <li class="no-bullet" ng-repeat="appointment in rileyappointments">
@@ -22,9 +33,9 @@
         <button class="btn btn-primary">Back to Homepage</button>
     </a>
     <a ng-href="#/daylog">
-        <button class="btn btn-primary">Go to Riley's Daily Log</button>
+        <button class="btn btn-primary">Go to {{petname}}'s Daily Log</button>
     </a>
     <a ng-href="#/medical">
-        <button class="btn btn-primary">Go to Riley's Medical Journal</button>
+        <button class="btn btn-primary">Go to {{petname}}'s Medical Journal</button>
     </a>
 </div>

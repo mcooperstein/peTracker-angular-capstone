@@ -1,5 +1,16 @@
-<div class="container" ng-controller="dailylogController">
-    <h1>Riley's Daily Log for {{today | date}}</h1>
+<div class="container">
+    <section class="navbar navbar-default col-xs-12">
+        <div class="col-xs-4">
+            <a ng-href="#/daylog/{{petname}}"><h4>Daily Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/medical/{{petname}}"><h4>Medical Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/appointments/{{petname}}"><h4>Upcoming Appointments</h4></a>
+        </div>
+    </section>
+    <h1>{{petname}}'s Daily Log for {{today | date}}</h1>
     <br>
     <form>
         <input class="user-input" type="text" placeholder="Example: 8am went pee outside" ng-model="addText" required/>
