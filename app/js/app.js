@@ -1,30 +1,5 @@
 var app = angular.module('myApp', ['ngMessages', 'ngRoute', 'ngAnimate']);
-/*.run(function ($rootScope) {
-    $rootScope.addEvents = function () {
-        if ($rootScope.addText.length >= 1) {
-            $rootScope.events.push({
-                text: $rootScope.addText
-            });
-        }
-        $rootScope.addText = "";
-    };
 
-    $rootScope.checkEvents = function (event) {
-        if ($rootScope.event.done == true) {
-            delete $rootScope.event.done;
-        }
-    };
-
-    $rootScope.clearCompleted = function () {
-        var doneEvents = $rootScope.events;
-        $rootScope.events = [];
-        angular.forEach(doneEvents, function (event) {
-            if (!event.done) {
-                $rootScope.events.push(event);
-            }
-        });
-    };
-});*/
 
 app.value('petprofile', [
     //Riley
@@ -55,39 +30,6 @@ app.value('petprofile', [
     }
 ]);
 
-/*app.value('petprofile', [
-    'Riley',
-    'Moe'
-    ]);*/
-
-/*var petprofile = [
-    //Riley
-    {
-        petname: 'Riley',
-        image: 'images/Riley.jpg',
-        medical: {
-            neutered: "Riley was neutered at SPCA on 2/28/04",
-            rabies: "Got last rabies/DA2PP vaccinations 9/3/14 (3-year vaccine)",
-            checkup: "Annual checkup at Vet on 4/25/15, vet found 3 fleas.",
-            vet: "Annual checkup at Vet on 5/30/16, had 2 teeth pulled."
-        },
-        appointments: ["Vet checkup on 6/15/16", "Grooming Appointment on 7/1/16"],
-        events: ["Riley peed 8am", "Riley fed 9am"]
-    },
-    //Moe
-    {
-        petname: 'Moe',
-        image: 'images/Moe.jpg',
-        medical: {
-            neutered: "Moe was neutered at SPCA on 1/15/16",
-            rabies: "Got rabies/DA2PP shots (3-year vaccines) 3/3/16",
-            checkup: "1 year checkup at Vet on 5/30/16, very healthy"
-        },
-        appointments: ["Vet checkup on 6/25/16", "Grooming Appointment on 6/26/16", "Grooming Appointment on 8/3/16"],
-        events: ["Moe peed 7am", "Moe ran 10am"]
-
-    }
-];*/
 
 app.config(['$locationProvider', '$routeProvider',
             function ($locationProvider, $routeProvider) {
