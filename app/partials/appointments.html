@@ -13,13 +13,23 @@
     <h1>{{petname}}'s Upcoming Appointments</h1>
     <br>
     <ul>
-        <li class="no-bullet" ng-repeat="appointment in rileyappointments">
-            <!--<li>{{rileyappointments.groomer}}</li>
-        <li ng-repeat="event in events">-->
+        <!--<li class="no-bullet" ng-repeat="profile in petprofile">-->
+        <!--<li class="no-bullet" ng-repeat="schedule in schedules">{{schedule}}</li>-->
+        <li class="no-bullet" ng-repeat="appointment in appointments" ng-show="displayAppointments">
             <input class="checkbox" type="checkbox" ng-model="appointment.done" ng-click="checkAppointments()" />
             <span class="done-{{appointment.done}}">{{appointment.text}}</span>
         </li>
+        <!--<li class="no-bullet" ng-repeat="event in events">
+            <input class="checkbox" type="checkbox" ng-model="event.done" ng-click="checkEvents()" />
+            <span class="done-{{event.done}}">{{event.text}}</span>
+        </li>-->
     </ul>
+    <!--<form>
+        <input class="user-input-appointments" type="text" placeholder="Ex: Vet appt for Bordetella vaccine and Heartworm test on 9/16/16" ng-model="addText" required/>
+        <button class="add-button" ng-click="addEvents()">
+            <h5>Add Upcoming Appointment Details</h5>
+        </button>
+    </form>-->
     <form>
         <input class="user-input-appointments" type="text" placeholder="Ex: Vet appt for Bordetella vaccine and Heartworm test on 9/16/16" ng-model="addText" required/>
         <button class="add-button" ng-click="addAppointments()">
@@ -29,13 +39,4 @@
     <button class="clear-button" ng-click="clearCompleted()">
         <h5 class="delete-btn">Delete Past Appointment(s)</h5>
     </button>
-    <a ng-href="#/homepage">
-        <button class="btn btn-primary">Back to Homepage</button>
-    </a>
-    <a ng-href="#/daylog">
-        <button class="btn btn-primary">Go to {{petname}}'s Daily Log</button>
-    </a>
-    <a ng-href="#/medical">
-        <button class="btn btn-primary">Go to {{petname}}'s Medical Journal</button>
-    </a>
 </div>
