@@ -397,7 +397,6 @@ app.controller('medicalController', ['$scope', 'petprofile', 'petname', function
             $scope.medicals.splice(0, 5, 'Riley was neutered at SPCA on 2/28/04', 'Got last rabies/DA2PP vaccinations 9/3/14 (3-year vaccine)', 'Annual checkup at Vet on 4/25/15, vet found 3 fleas.', 'Riley got 2 teeth pulled at annual checkup 6/21/16')
                 //This shows all 5 items I pop into array plus medicals[4] and medicals[5]
                 //$scope.medicals.splice(0, 4, 'Riley fed 7am', 'Riley poo 730am', 'Riley run 9am', "Riley pee and poo 12pm", "Riley fed 6pm")
-
         }
         return $scope.medicals
     };
@@ -416,6 +415,22 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
         text: "Poop"
     }];*/
     //$scope.events = [];
+    $scope.events = [];
+    $scope.addEvents = function () {
+        if ($scope.addText.length >= 1) {
+            $scope.events.push({
+                text: $scope.addText
+            });
+        }
+        $scope.addText = "";
+    };
+
+    $scope.checkEvents = function (event) {
+        console.log(event);
+        if (event.done == true) {
+            delete event.done;
+        }
+    };
 
     $scope.appointments = [{
         text: "Moe grooming apt 6/3/16"
@@ -431,24 +446,26 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
         text: "appointments[5]"
     }];
 
-    $scope.displayAppointments = function () {
+    /*$scope.displayAppointments = function () {
         if ($scope.petname == "Moe") {
             $scope.appointments.splice(3, 3)
         } else {
-            $scope.appointments.splice(0, 5, "Riley oral surgeon appointment 9/15/16")
+            $scope.appointments.splice(1, 1, {
+                text: "Riley grooming apt 7/8/16"
+            })
         }
         return $scope.appointments
-    };
+    };*/
     //console.log($scope.appointments[i]);
 
-    $scope.addAppointments = function () {
+    /*$scope.addAppointments = function () {
         if ($scope.addText.length >= 1) {
             $scope.appointments.push({
                 text: $scope.addText
             });
         }
         $scope.addText = "";
-    };
+    };*/
 
 
     $scope.checkAppointments = function (appointment) {
@@ -460,18 +477,19 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
     $scope.clearCompleted = function () {
         var doneAppointments = $scope.appointments;
         $scope.appointments = [];
-        /*var doneEvents = $scope.events;
-        $scope.events = [];*/
-        angular.forEach(doneAppointments, function (appointment) {
-            if (!appointment.done) {
-                $scope.appointments.push(appointment);
-            }
-        });
-        /*angular.forEach(doneEvents, function (event) {
+        var doneEvents = $scope.events;
+        $scope.events = [];
+        angular.forEach(doneAppointments,
+            function (appointment) {
+                if (!appointment.done) {
+                    $scope.appointments.push(appointment);
+                }
+            });
+        angular.forEach(doneEvents, function (event) {
             if (!event.done) {
                 $scope.events.push(event);
             }
-        });*/
+        });
     };
 
 
