@@ -415,24 +415,23 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
         text: "Poop"
     }];*/
     //$scope.events = [];
-    $scope.events = [];
-    $scope.addEvents = function () {
-        if ($scope.addText.length >= 1) {
-            $scope.events.push({
-                text: $scope.addText
-            });
-        }
-        $scope.addText = "";
-    };
+    //$scope.events = [];
 
-    $scope.checkEvents = function (event) {
-        console.log(event);
+
+    /*$scope.checkEvents = function (event) {
         if (event.done == true) {
+            console.log(event);
             delete event.done;
         }
-    };
+    };*/
 
-    $scope.appointments = [{
+    /*$scope.checkAppointments = function (appointment) {
+        if (appointment.done == true) {
+            delete appointment.done;
+        }
+    };*/
+
+    /*$scope.appointments = [{
         text: "Moe grooming apt 6/3/16"
     }, {
         text: "Moe grooming apt 7/15/16"
@@ -444,19 +443,74 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
         text: "appointments[4]"
     }, {
         text: "appointments[5]"
-    }];
+    }];*/
 
     /*$scope.displayAppointments = function () {
         if ($scope.petname == "Moe") {
             $scope.appointments.splice(3, 3)
+        } else if ($scope.petname == "Riley") {
+            $scope.appointments = [{
+                text: "Riley grooming apt 6/13/16"
+            }, {
+                text: "Riley grooming apt 7/5/16"
+            }, {
+                text: "Riley vet appointment 11/16/16"
+            }, {
+                text: "appointments[3]"
+            }, {
+                text: "appointments[4]"
+            }, {
+                text: "appointments[5]"
+            }]
+            return $scope.appointments.splice(3, 3)
         } else {
-            $scope.appointments.splice(1, 1, {
-                text: "Riley grooming apt 7/8/16"
-            })
+            $scope.appointments = [{
+                text: "Error"
+            }]
         }
         return $scope.appointments
     };*/
-    //console.log($scope.appointments[i]);
+    $scope.riley = [{
+        text: "Riley grooming apt 6/13/16"
+    }, {
+        text: "Riley grooming apt 7/5/16"
+    }, {
+        text: "Riley vet appointment 11/16/16"
+    }];
+
+    $scope.moe = [{
+        text: "Moe grooming apt 6/3/16"
+    }, {
+        text: "Moe grooming apt 7/15/16"
+    }, {
+        text: "Moe vet appointment 9/16/16"
+    }];
+
+    $scope.appointments = [];
+
+    $scope.displayAppointments = function () {
+        if ($scope.petname == "Moe") {
+            $scope.appointments = $scope.moe;
+        } else if ($scope.petname == "Riley") {
+            $scope.appointments = $scope.riley;
+        } else {
+            $scope.appointments = function () {
+                return "error";
+            }
+        }
+        return $scope.appointments;
+        //return $scope.displayAppointments();
+    };
+    //console.log($scope.appointments);
+
+    $scope.addAppointments = function () {
+        if ($scope.addText.length >= 1) {
+            $scope.appointments.push({
+                text: $scope.addText
+            });
+        }
+        $scope.addText = "";
+    };
 
     /*$scope.addAppointments = function () {
         if ($scope.addText.length >= 1) {
@@ -468,29 +522,50 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
     };*/
 
 
-    $scope.checkAppointments = function (appointment) {
-        if ($scope.appointment.done == true) {
-            delete $scope.appointment.done;
+    /*$scope.checkAppointments = function (appointment) {
+        if (appointment.done == true) {
+            console.log(appointment);
+            delete appointment;
         }
-    };
+    };*/
+
+    $scope.customArrayRemove = function (arr, item) {
+        //for (var i = arr.length; i--;) {
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+            console.log(item);
+            if (arr[i] === item) {
+                console.log("deleting");
+                arr.splice(i, 1);
+            }
+            //console.log(arr[i]);
+        }
+        return arr;
+    }
 
     $scope.clearCompleted = function () {
+        //console.log($scope.appointments);
         var doneAppointments = $scope.appointments;
-        $scope.appointments = [];
-        var doneEvents = $scope.events;
-        $scope.events = [];
-        angular.forEach(doneAppointments,
-            function (appointment) {
-                if (!appointment.done) {
-                    $scope.appointments.push(appointment);
-                }
-            });
-        angular.forEach(doneEvents, function (event) {
+        //$scope.appointments = [];
+        //var doneEvents = $scope.events;
+        //$scope.events = [];
+        angular.forEach(doneAppointments, function (appointment) {
+            //console.log(appointment.done);
+            if (appointment.done == true) {
+                $scope.appointments = $scope.customArrayRemove($scope.appointments, appointment);
+                //$scope.appointments.pop(this.appointment);
+                //$scope.appointments.push(appointment);
+            }
+
+        });
+        /*angular.forEach(doneEvents, function (event) {
             if (!event.done) {
                 $scope.events.push(event);
             }
-        });
+        });*/
+        console.log($scope.appointments);
     };
+
 
 
 
