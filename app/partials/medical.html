@@ -1,8 +1,20 @@
-<div class="container" ng-controller="MainController">
-    <h1>Riley's Medical Journal</h1>
+<div class="container">
+    <section class="navbar navbar-default col-xs-12">
+        <div class="col-xs-4">
+            <a ng-href="#/daylog/{{petname}}"><h4>Daily Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/medical/{{petname}}"><h4>Medical Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/appointments/{{petname}}"><h4>Upcoming Appointments</h4></a>
+        </div>
+    </section>
+    <h1>{{petname}}'s Medical Journal</h1>
     <br>
     <ul>
-        <li class="legible" ng-repeat="medical in rileymedical">{{medical.text}}</li>
+        <!--<li class="legible" ng-repeat="profile in petprofile">{{profile.medical}}</li>-->
+        <li class="legible" ng-repeat="medical in medicals" ng-show="displayMedicals()">{{medical}}</li>
         <li class="legible" ng-repeat="event in events">
             <span>{{event.text}}</span>
         </li>
@@ -13,7 +25,7 @@
             <h5>Add Event</h5>
         </button>
     </form>
-    <div id="home">
+    <!--<div id="home">
         <a ng-href="#/homepage">
             <button class="btn btn-primary">Back to Homepage</button>
         </a>
@@ -23,5 +35,5 @@
         <a ng-href="#/appointments">
             <button class="btn btn-primary">Go to {{petprofile.petname}}'s Upcoming Appointments</button>
         </a>
-    </div>
+    </div>-->
 </div>

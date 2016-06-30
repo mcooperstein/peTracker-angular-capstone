@@ -1,0 +1,43 @@
+<div class="container">
+    <section class="navbar navbar-default col-xs-12">
+        <div class="col-xs-4">
+            <a ng-href="#/daylog/{{petname}}"><h4>Daily Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/medical/{{petname}}"><h4>Medical Log</h4></a>
+        </div>
+        <div class="col-xs-4">
+            <a ng-href="#/appointments/{{petname}}"><h4>Upcoming Appointments</h4></a>
+        </div>
+    </section>
+    <h1>{{petname}}'s Upcoming Appointments</h1>
+    <br>
+    <ul>
+        <!--<li class="no-bullet" ng-repeat="profile in petprofile">-->
+        <!--<li class="no-bullet" ng-repeat="schedule in schedules">{{schedule}}</li>-->
+        <!--<li class="no-bullet" ng-repeat="appointment in appointments" ng-show="displayAppointments()">-->
+        <li class="no-bullet" ng-repeat="appointment in displayAppointments()">
+            <input class="checkbox" type="checkbox" ng-model="appointment.done" ng-click="checkAppointments(this.appointment)" />
+            <span class="done-{{appointment.done}}">{{appointment.text}} - {{appointment.done}}</span>
+        </li>
+        <!--<li class="no-bullet" ng-repeat="event in events">
+            <input class="checkbox" type="checkbox" ng-model="event.done" ng-click="checkEvents(event.done)" />
+            <span class="done-{{event.done}}">{{event.text}}</span>
+        </li>-->
+    </ul>
+    <form>
+        <input class="user-input-appointments" type="text" placeholder="Ex: Vet appt for Bordetella vaccine and Heartworm test on 9/16/16" ng-model="addText" required/>
+        <button class="add-button" ng-click="addAppointments()">
+            <h5>Add Upcoming Appointment Details</h5>
+        </button>
+    </form>
+    <!--<form>
+        <input class="user-input-appointments" type="text" placeholder="Ex: Vet appt for Bordetella vaccine and Heartworm test on 9/16/16" ng-model="addText" required/>
+        <button class="add-button" ng-click="addAppointments()">
+            <h5>Add Upcoming Appointment Details</h5>
+        </button>
+    </form>-->
+    <button class="clear-button" ng-click="clearCompleted()">
+        <h5 class="delete-btn">Delete Past Appointment(s)</h5>
+    </button>
+</div>
