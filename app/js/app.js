@@ -1,6 +1,5 @@
 var app = angular.module('myApp', ['ngMessages', 'ngRoute', 'ngAnimate']);
 
-
 app.value('petprofile', [
     //Riley
     {
@@ -565,8 +564,6 @@ app.controller('appointmentsController', ['$scope', 'petprofile', 'petname', fun
         });*/
         console.log($scope.appointments);
     };
-
-
 
 
 }]);
