@@ -1,0 +1,26 @@
+{
+  "name": "petracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcooperstein/peTracker-angular-capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcooperstein/peTracker-angular-capstone/issues"
+  },
+  "homepage": "https://github.com/mcooperstein/peTracker-angular-capstone#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-protractor": "^2.4.0",
+    "gulp-shell": "^0.5.2",
+    "protractor": "^3.3.0"
+  }
+}
