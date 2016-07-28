@@ -46,9 +46,8 @@ h4 {
 }
 
 h4:hover {
-    background-color: black;
-    color: white;
     font-weight: bolder;
+    transform: scale(1.25, 1.25);
 }
 
 
@@ -94,7 +93,7 @@ h3 {
 }
 
 h3:hover {
-    font-size: 2.5em;
+    transform: scale(1.5, 1.5);
 }
 
 
@@ -133,8 +132,16 @@ h3:hover {
     font-size: 0.8em;
 }
 
+.add-button h5#no-hover {
+    font-size: 0.5em;
+}
+
 .add-button h5:hover {
     font-size: 1em;
+}
+
+.add-button h5#no-hover:hover {
+    font-size: 0.65em;
 }
 
 .clear-button {
@@ -172,7 +179,7 @@ ul {
 
 li {
     text-align: left;
-    font-size: 2.25em;
+    font-size: 2em;
     font-family: 'Indie Flower', cursive;
 }
 
@@ -214,8 +221,8 @@ li {
 
 .fade.ng-enter,
 .fade.ng-leave {
-    -webkit-transition: all 1.3s ease;
-    transition: all 1.3s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .fade.ng-enter {
@@ -258,7 +265,7 @@ li {
 
 .animate-view.ng-enter,
 .animate-view.ng-leave {
-    transition: 2s linear all;
+    transition: 1s linear all;
     position: absolute;
     top: 0;
     left: 0;
@@ -314,3 +321,59 @@ Responsive styles
 (the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
 place all the mobile tables styles bellow this line
 */
+
+@media (max-width: 767px) {
+    .add-delete h3 {
+        font-size: 1.25em;
+    }
+    h4 {
+        font-size: 1em;
+    }
+    .user-input {
+        width: 50%;
+        height: 4em;
+        text-align: center;
+        font-size: 1em;
+        font-family: 'Libre Baskerville', serif;
+        border: 1px solid black;
+    }
+    span {
+        font-size: 0.75em;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    li {
+        font-size: 1.25em
+    }
+    span.ng-binding {
+        font-size: 1em;
+    }
+    .add-button h5 {
+        font-size: 0.5em;
+    }
+    .delete-btn {
+        font-size: 0.5em;
+    }
+    .delete-btn:hover {
+        font-size: 0.55em;
+    }
+    .add-button h5#no-hover:hover {
+        font-size: 0.55em;
+    }
+}
+
+@media (min-width: 870px) {
+    .container {
+        width: 850px;
+    }
+}
+
+@media (min-width: 1020px) {
+    .container {
+        width: 90%;
+    }
+}
