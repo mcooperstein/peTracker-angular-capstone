@@ -13,9 +13,11 @@ The project specifications laid out were as follows: Plan and architect your app
 3. Modules, Controllers, and Services in Angular:
 4. Route transitions with CSS animations
 5. Unit Testing and E2E Testing with Jasmine/Karma and Protractor 
+
 ## Known Bugs/Issues
 1. Working on adding a local storage (ngStorage) component to have a functional database component to store pet data.
 2. Add/Delete Links on Homepage aren't functional and instead link to Rick Astley's 1987 masterpiece "Never Gonna Give You Up" and a GoPro video I shot/edited for my previous employer, Amici's East Coast Pizzeria.
+
 ## To-Do List
 1. Would like to add a backend database component when I start learning Node/MongoDB.
 2. Would like to add functionality that allows you to add and delete pet profiles
