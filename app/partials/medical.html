@@ -13,7 +13,6 @@
     <h1>{{petname}}'s Medical Journal</h1>
     <br>
     <ul>
-        <!--<li class="legible" ng-repeat="profile in petprofile">{{profile.medical}}</li>-->
         <li class="legible" ng-repeat="medical in medicals" ng-show="displayMedicals()">{{medical}}</li>
         <li class="legible" ng-repeat="event in events">
             <span>{{event.text}}</span>
@@ -25,15 +24,5 @@
             <h5>Add Event</h5>
         </button>
     </form>
-    <!--<div id="home">
-        <a ng-href="#/homepage">
-            <button class="btn btn-primary">Back to Homepage</button>
-        </a>
-        <a ng-href="#/daylog">
-            <button class="btn btn-primary">Go to {{petprofile.petname}}'s Daily Log</button>
-        </a>
-        <a ng-href="#/appointments">
-            <button class="btn btn-primary">Go to {{petprofile.petname}}'s Upcoming Appointments</button>
-        </a>
-    </div>-->
+
 </div>

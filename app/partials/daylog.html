@@ -20,10 +20,8 @@
     </form>
     <ul>
         <li ng-repeat="action in actions" ng-show="displayActions()">
-            <!--<li ng-repeat="action in actions" ng-show="displayActions($scope.actions, '{{petname}}')">-->
             <span>{{action}}</span>
         </li>
-        <!--<li>{{actions}}</li>-->
         <li ng-repeat="event in events">
             <span>{{event.text}}</span>
         </li>
