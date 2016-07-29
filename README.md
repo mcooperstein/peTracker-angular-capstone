@@ -8,9 +8,9 @@ a certain vaccination, medical treatment, etc. And lastly, you can store/keep tr
 ## Project Specs
 The project specifications laid out were as follows: Plan and architect your app idea, and then design it from the ground up using your skills and knowledge acquired through the Angular.js course. 
 ## Programming Skills Used/Demonstrated
-1. Angular Templating and Data Binding:
-2. Angular Directives: ng-repeat, ng-model, ng-class, etc. allow users to manipulate data and have the HTML automatically re-render.  Note that using ng-submit causes Angular to intercept the form submission event, which would normally be directed to a server. Instead, Angular collects the data and handles it locally.
-3. Modules, Controllers, and Services in Angular:
+1. Angular Templating and Data Binding
+2. Angular Directives: ng-repeat, ng-model, ng-class, etc. allowing users to manipulate data and have the HTML automatically re-render.  
+3. Modules, Controllers, Services, and Scope in Angular
 4. Route transitions with CSS animations
 5. Unit Testing and E2E Testing with Jasmine/Karma and Protractor 
 
