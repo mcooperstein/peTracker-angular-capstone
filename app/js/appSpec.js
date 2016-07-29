@@ -33,9 +33,6 @@
 
 describe('Routes', function () {
     beforeEach(module('myApp'));
-    /*beforeEach(function () {
-        angular.module('myApp');
-    });*/
 
     //when route is '/partials/homepage', does homepage load properly ?
     it('should load the homepage', function () {
