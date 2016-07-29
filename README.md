@@ -7,7 +7,7 @@ PeTracker also allows you to keep medical records and important information stor
 a certain vaccination, medical treatment, etc. And lastly, you can store/keep track of your pet's upcoming appointments and delete them as they come and go. Organizing your pet's records and schedules has never been so easy, thanks to PeTracker.
 ## Project Specs
 The project specifications laid out were as follows: Plan and architect your app idea, and then design it from the ground up using your skills and knowledge acquired through the Angular.js course. 
-## Skills Used/Demonstrated
+## Programming Skills Used/Demonstrated
 1. Angular Templating and Data Binding:
 2. Angular Directives: ng-repeat, ng-model, ng-class, etc. allow users to manipulate data and have the HTML automatically re-render.  Note that using ng-submit causes Angular to intercept the form submission event, which would normally be directed to a server. Instead, Angular collects the data and handles it locally.
 3. Modules, Controllers, and Services in Angular:
