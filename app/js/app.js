@@ -30,16 +30,16 @@ app.value("petprofile", [
 ]);
 
 
-app.config(['$locationProvider', '$routeProvider',
+app.config(["$locationProvider", "$routeProvider",
             function ($locationProvider, $routeProvider) {
             $routeProvider
-                .when('/homepage', {
-                    templateUrl: './partials/homepage.html',
-                    controller: 'MainController'
+                .when("/homepage", {
+                    templateUrl: "./partials/homepage.html",
+                    controller: "MainController"
                 })
-                .when('/petprofile/:petname', {
-                    templateUrl: './partials/petprofile.html',
-                    controller: 'petprofileController',
+                .when("/petprofile/:petname", {
+                    templateUrl: "./partials/petprofile.html",
+                    controller: "petprofileController",
                     resolve: {
                         petname: function (petprofile, $route, $location) {
                             var petname = $route.current.params.petname;
@@ -47,9 +47,9 @@ app.config(['$locationProvider', '$routeProvider',
                         }
                     }
                 })
-                .when('/daylog/:petname', {
-                    templateUrl: './partials/daylog.html',
-                    controller: 'dailylogController',
+                .when("/daylog/:petname", {
+                    templateUrl: "./partials/daylog.html",
+                    controller: "dailylogController",
                     resolve: {
                         petname: function (petprofile, $route, $location) {
                             var petname = $route.current.params.petname;
@@ -57,9 +57,9 @@ app.config(['$locationProvider', '$routeProvider',
                         }
                     }
                 })
-                .when('/medical/:petname', {
-                    templateUrl: './partials/medical.html',
-                    controller: 'medicalController',
+                .when("/medical/:petname", {
+                    templateUrl: "./partials/medical.html",
+                    controller: "medicalController",
                     resolve: {
                         petname: function (petprofile, $route, $location) {
                             var petname = $route.current.params.petname;
@@ -67,9 +67,9 @@ app.config(['$locationProvider', '$routeProvider',
                         }
                     }
                 })
-                .when('/appointments/:petname', {
-                    templateUrl: './partials/appointments.html',
-                    controller: 'appointmentsController',
+                .when("/appointments/:petname", {
+                    templateUrl: "./partials/appointments.html",
+                    controller: "appointmentsController",
                     resolve: {
                         petname: function (petprofile, $route, $location) {
                             var petname = $route.current.params.petname;
@@ -78,17 +78,17 @@ app.config(['$locationProvider', '$routeProvider',
                     }
                 })
                 .otherwise({
-                    redirectTo: '/homepage'
+                    redirectTo: "/homepage"
                 })
 }])
     .run(function ($rootScope, $location, $timeout) {
-        $rootScope.$on('$routeChangeError', function () {
+        $rootScope.$on("$routeChangeError", function () {
             $location.path('/error');
         });
-        $rootScope.$on('$routeChangeStart', function () {
+        $rootScope.$on("$routeChangeStart", function () {
             $rootScope.isLoading = true;
         });
-        $rootScope.$on('$routeChangeSuccess', function () {
+        $rootScope.$on("$routeChangeSuccess", function () {
             $rootScope.isLoading = false;
         }, 2000);
     });
@@ -192,7 +192,7 @@ app.controller("dailylogController", ["$scope", "petprofile", "petname", functio
             }
         });
     };
-            }]);
+}]);
 
 app.controller("medicalController", ["$scope", "petprofile", "petname", function ($scope, petprofile, petname) {
     $scope.petprofile = petprofile;
@@ -239,7 +239,6 @@ app.controller("medicalController", ["$scope", "petprofile", "petname", function
         }
         return $scope.medicals
     };
-
 }]);
 
 app.controller("appointmentsController", ["$scope", "petprofile", "petname", function ($scope, petprofile, petname) {
@@ -320,6 +319,5 @@ app.controller("appointmentsController", ["$scope", "petprofile", "petname", fun
         });
         //console.log($scope.appointments);
     };
-
 
 }]);

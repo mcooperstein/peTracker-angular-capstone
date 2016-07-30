@@ -278,12 +278,6 @@ li {
     opacity: 0;
 }
 
-
-/* -------------------------------------
-Footer styles (Main Module)
-(all the styles inside the < footer > tag)
-*/
-
 .add-delete {
     margin-top: 2em;
     padding: 2em;
@@ -301,12 +295,7 @@ Footer styles (Main Module)
 }
 
 
-/* -------------------------------------
-place all the desktop styles above this line
-Responsive styles
-(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
-place all the mobile tables styles bellow this line
-*/
+/* -- Media Queries -- */
 
 @media (max-width: 767px) {
     .add-delete h3 {
